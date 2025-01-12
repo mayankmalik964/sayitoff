@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Quora</h1>
+    <br><br>
+    <br>
+    <form  method="post" action="http://localhost:8080/quora/<%=post.id%>/edit?_method=PATCH">
+    <p>
+        post id:<%=post.id%>
+        <br><br>
+        username :<%=post.name  %>
+        <br><br>
+        <textarea name="comment" id="comment"><%=post.comment  %></textarea>
+        <br><br>
+        <button>submit</button>
+
+    </p></form>
+</body>
+</html>
