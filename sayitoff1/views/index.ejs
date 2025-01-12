@@ -5,22 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Correct Import for Material Symbols Outlined -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Quora</h1>
-    <%for (let post of posts){%>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    
+    <div class="header">
+        <h1 class="dancing-script-logo">Sayitoff</h1>
+        
+        <div class="searchbar">
+            <!-- Correct usage of search icon -->
+            <div class="material-symbols-outlined" id="searchicon">search</div>
+            <input class="search" type="text" placeholder="Search">
+        </div>
+        
+        <div class="profile"></div>
+        
+        <div class="createpost">
+            <!-- Correct usage of add icon -->
+            <div class="material-symbols-outlined">add</div>
+            <a href="http://localhost:8080/quora/new">Post</a>
+        </div>
+    </div>
+    
+    <div class="navbar"></div>
+    <div class="popular"></div>
+    <div class="recentposts"></div>
+    <div class="friends"></div>
     
     <div>
-        <%=post.name%> posted <br>
-        <%=post.comment%>
-        <%=post.id %>
-        <a href="http://localhost:8080/quora/view/<%=post.id%>">view post in detail</a>
-        <a href="http://localhost:8080/quora/<%=post.id%>/edit">Edit post</a>
-  <br><br><br>
+        <% for (let post of posts) { %>
+            <%= post.name %> posted <br>
+            <%= post.comment %>
+            <%= post.id %>
+            <a href="http://localhost:8080/quora/view/<%= post.id %>">View post in detail</a>
+            <a href="http://localhost:8080/quora/<%= post.id %>/edit">Edit post</a>
+            <br><br><br>
+        <% } %>
     </div>
-
-    <% }%>
-    <a href="http://localhost:8080/quora/new">create new post</a>
-   
 </body>
 </html>
