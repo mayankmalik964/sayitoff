@@ -24,11 +24,16 @@
         
         <div class="searchbar">
             <!-- Correct usage of search icon -->
-            <div class="material-symbols-outlined" id="searchicon">search</div>
+           
             <input class="search" type="text" placeholder="Search">
+            <div class="material-symbols-outlined" id="searchicon">search</div>
         </div>
         
-        <div class="profile"></div>
+        <div class="profile">
+            <span class="material-symbols-outlined" id="profileicon">
+                account_circle
+            </span>
+        </div>
         
         <div class="createpost">
             <!-- Correct usage of add icon -->
@@ -36,12 +41,76 @@
             <a href="http://localhost:8080/quora/new">Post</a>
         </div>
     </div>
+<div  class="content">
+    <div class="navbar">
+        <div type="button" class="explore">
+             <span class="material-symbols-outlined" id="explore">
+                 explore
+             </span>
+             <p >explore</p>
+        </div>
+        <div type="button" class="trending">
+             <span class="material-symbols-outlined" id="trending">
+                 local_fire_department
+             </span>
+             <p>trending</p>
+        </div> 
+        <div type="button" class="suggestions" id="suggestions">  
+             <span class="material-symbols-outlined">
+                  for_you
+             </span>
+             <p>for you</p>
+        </div>  
+        <div type="button" class="settings" id="settings">
+             <span class="material-symbols-outlined">
+                 settings
+             </span>
+            <p> settings</p>
+        </div>
+        <div type="button" class="logout" id="logout">
+              <span class="material-symbols-outlined">
+                 logout
+        </span>
+               <p>logout</p>
+        </div>
+    </div>
+    <div class="maincontent">
+         <div class="popular">
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+             <div class="cardpopular"></div>
+         </div>
+         <div class="recentposts">
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+             <div class="rpcard"></div>
+         </div>
+
+    </div>
     
-    <div class="navbar"></div>
-    <div class="popular"></div>
-    <div class="recentposts"></div>
-    <div class="friends"></div>
-    
+    <div class="friends">
+        <div class="fsearch">
+            
+            <input class="search2" type="text" placeholder="Search">
+            <div class="material-symbols-outlined" id="searchicon2">search</div>
+        </div>
+        <br><hr>
+        <p>friends</p>
+        <div></div>
+    </div>
+</div>
     <div>
         <% for (let post of posts) { %>
             <%= post.name %> posted <br>
