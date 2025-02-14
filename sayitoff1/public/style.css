@@ -11,7 +11,7 @@ h1{ margin-left: 1rem;
 body{
     margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
+    overflow: hidden;
     
     width: 100%;
     background: linear-gradient(315deg,  #7209b7 3%,  #3a0ca3 38%,#4361ee 68%,#4cc9f0 98%);
@@ -175,6 +175,7 @@ body{
     height: 80vh;
     width: 20vw;
     color: white;
+    
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     background-color: rgb(207, 200, 200,0.45); 
     border-radius: 2rem;
@@ -190,6 +191,7 @@ body{
     display: flex;
     height: 80vh;
     width: 50vw;
+     
     flex-direction: column;
     background-color: rgb(207, 200, 200,0.45); 
     border-radius: 2rem;
@@ -215,26 +217,69 @@ body{
 
     backdrop-filter: blur(15px);
   }
-  .explore,.suggestions,.logout,.trending,.settings{
+  .navele{
+    overflow: hidden;
     display: flex;
     width: 70%;
+
     text-align: center;
     align-items: center;
+    
     transition: 0.2s ease-in-out;
     padding-left: 10px;
     padding-top: 3px;
     padding-right: 10px;
     backdrop-filter: blur(2px);
-    border: 1px solid rgba(white, 0.6);
-    background-color: rgba(white, 0.1);
+    border: 1px solid rgba(255,255,255,0.6) ;
+    background-color:rgba(255,255,255,0.1) ;
     border-radius: 0.5rem;
     box-shadow: 
-      0px 
-      calc(var(--size) / 6) 
-      calc(var(--size) / 3) 
-      rgba(black, 0.1);
+      10px 
+      10px 10px
+      rgba(0,0,0, 0.2);
+      &::before {
+        content: '';
+        background: rgba(255,255,255, 0.4);
+        width: 60%;
+        height: 100%;
+        top: 0%;
+  
+        transform: skew(45deg);
+  
+        position: absolute;
+  
+        transition: left 
+          0.6s
+         ease-in-out;
+          left: -125%;
+      }
+      &:hover {     
+        transform: translateY(-25%); 
+        box-shadow: 
+        10px 
+        10px 10px
+        rgba(0,0,0, 0.4);
+        &::before {
+          left: 150%;
+        }
+      }
      
   }
+  @keyframes revealing {
+    from {
+      color: gray;
+      margin-left: 100vw;
+      filter: blur(50px);
+      opacity: 0.5;
+    }
+    to {
+      margin: 0px;
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+ 
+  
   p{
     padding-left: 10px;
     padding-top: 3px;
@@ -250,6 +295,7 @@ body{
     scale: 1.1;
   }
   .popular{
+    
     display: flex;
     height: 30%;
     width: 95%;
@@ -262,7 +308,7 @@ body{
     padding-top: 40px;
     padding-bottom: 20px;
     flex-wrap: nowrap;
-  
+  flex-direction: row;
 
   
     border-radius: 0.5rem;
@@ -273,7 +319,10 @@ body{
       rgba(black, 0.1);
   }
   .cardpopular{
-
+    animation: revealing;
+    animation-timeline: view(block);
+    animation-range: cover 0% cover 35%;
+    
     display: flex;
     flex-shrink: 0;
    transition: 0.2s ease-in-out;
@@ -297,7 +346,8 @@ body{
     flex-wrap: wrap;
     height: 55%;
     width: 95%;
-   overflow: auto;
+   overflow-x:hidden;
+   overflow-y: auto;
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
@@ -315,9 +365,13 @@ body{
   .rpcard{
     display: flex;
     margin-top: 2rem;
-    
+   
+    animation: revealing;
+    animation-timeline: view(block);
+    animation-range: cover 0% cover 35%;
+    margin: 0px;
     transition: 0.2s ease-in-out;
-     height: 65%;
+     height: 85%;
      width:45%;
      border: 1px solid rgba(96, 59, 59, 0.6);
      background-color: rgba(130, 61, 61, 0.1);
@@ -336,4 +390,84 @@ body{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     margin-left: 1rem;
   }
- 
+  .rpcontainer{
+   
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    height: 70%;
+  }
+.flistdiv{
+  margin: 10px;
+  display: flex;
+  height: 75%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  
+  justify-content: start;
+  align-items: center;
+  overflow: auto;
+
+}
+.friendslist{
+  height: 50px !important;
+  width: 80%;
+  margin: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-right: 10px;
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,0.6) ;
+  background-color:rgba(255,255,255,0.1) ;
+  border-radius: 0.5rem;
+  box-shadow: 
+    10px 
+    10px 10px
+    rgba(0,0,0, 0.2);
+  
+  box-shadow: 
+    10px 
+    10px 10px
+    rgba(0,0,0, 0.2);
+    &::before {
+      content: '';
+      background: rgba(255,255,255, 0.4);
+      width: 60%;
+      height: 100%;
+      top: 0%;
+
+      transform: skew(45deg);
+
+      position: absolute;
+
+      transition: left 
+        0.6s
+       ease-in-out;
+        left: -125%;
+    }
+    &:hover {     
+      transform: scale(1.06); 
+      box-shadow: 
+      10px 
+      10px 10px
+      rgba(0,0,0, 0.4);
+      &::before {
+        left: 150%;
+      }
+    }
+}
+ .posts{
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+ }
+ .stories{
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+ }
