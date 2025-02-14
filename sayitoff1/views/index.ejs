@@ -152,11 +152,9 @@
 
     <div>
         <% for (let post of posts) { %>
-            <%= post.name %> posted <br>
-            <%= post.comment %>
-            <%= post.id %>
-            <a href="http://localhost:8080/quora/view/<%= post.id %>">View post in detail</a>
-            <a href="http://localhost:8080/quora/<%= post.id %>/edit">Edit post</a>
+            
+            <a href="http://localhost:8080/quora/view/<%= post.id %>"></a>
+            <a href="http://localhost:8080/quora/<%= post.id %>/edit"></a>
             <br><br><br>
         <% } %>
     </div>
