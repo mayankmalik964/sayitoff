@@ -25,14 +25,14 @@ let posts=[{
     name:"harsh",
     comment:"doing everything"
 }]
-app.get("/quora",(req,res)=>{
+app.get("/sayitoff",(req,res)=>{
     res.render("index.ejs" ,{posts:posts});
 })
-app.get("/quora/new",(req,res)=>{
+app.get("/sayitoff/new",(req,res)=>{
      res.render("new.ejs");
 }
 )
-app.post("/quora/new",(req,res)=>{
+app.post("/sayitoff/new",(req,res)=>{
   
     let{name,comment}=req.body;
     let id=uuidv4();
@@ -42,26 +42,26 @@ app.post("/quora/new",(req,res)=>{
         console.log(post.name);
     }
    
-    res.redirect("/quora");
+    res.redirect("/sayitoff");
 })
-app.get("/quora/view/:id",(req,res)=>{
+app.get("/sayitoff/view/:id",(req,res)=>{
     let {id}=req.params;
     console.log(id);
     let post=posts.find((p)=>id===p.id);
     console.log(post.id);
     res.render("view.ejs",{post});
 })
-app.get("/quora/:id/edit",(req,res)=>{
+app.get("/sayitoff/:id/edit",(req,res)=>{
     let {id}=req.params;
     let post=posts.find((p)=>id===p.id);
     res.render("edit.ejs",{post});
 })
-app.patch("/quora/:id/edit",(req,res)=>{
+app.patch("/sayitoff/:id/edit",(req,res)=>{
     let {id}=req.params;
     let newcomment=req.body.comment;
 
     let post=posts.find((p)=>id===p.id);
     post.comment=newcomment;
     
-    res.redirect("/quora");
+    res.redirect("/sayitoff");
 })
